@@ -25,3 +25,7 @@ while True:
     
     # Continue loop till winner or draw is declared
         
+# This works, but there is one major flaw:
+# get_move() and make_move() do not check if it is a valid move.
+# So a player can overwrite the opponent's move.
+# Need to fix get_move() to take board and argument and mention when a move is invalid.
