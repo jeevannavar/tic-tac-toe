@@ -6,9 +6,10 @@ while True:
     board = new_board() 
     layout = [['1','2','3'],['4','5','6'],['7','8','9']]
 
-    print("TIC TAC TOE !!")
-    print("This is the layout of the board.\n")
+    print("\nTIC TAC TOE !!\n")
+    print("This is the layout of the board.")
     render_board(layout)
+    print("")
 
     players = ["Player 1", "Player 2"]
     current_player = players[0]
@@ -16,7 +17,7 @@ while True:
 
     while True:
         print(current_player)
-        coords = get_move()
+        coords = get_move(board)
 
         board = make_move(board, current_player, coords)
         moves += 1
@@ -24,11 +25,11 @@ while True:
         render_board(board)
 
         if winner(board):
-            print("Game Over!\n"+current_player + " is the winner!")
+            print("Game Over!\n"+current_player + " is the winner!\n")
             break
 
         if isBoardFull(board):
-            print("Game Over!\nThe game is a draw.")
+            print("Game Over!\nThe game is a draw.\n")
             break
 
         #Switching players at the end of the turn
@@ -36,6 +37,7 @@ while True:
 
     print("Would you like to play again?\nEnter <Yes> to play again.")
     if input().strip().lower() == "yes":
+        print("_"*100)
         continue
     else:
         break

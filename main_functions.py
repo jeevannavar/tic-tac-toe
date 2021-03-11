@@ -42,22 +42,22 @@ def render_board(board):
 #board[2][0] = "O"
 #render_board(board)
 
-def get_move():
+def get_move(board):
     '''
     This function ...
     Input:
-        None
+        board   = current state of the board
     Output:
-        move = int in the range of 1 through 9
+        move    = int in the range of 1 through 9
     '''
     print("Choose the tile you would like to mark: (Enter number between 1 and 9)")
-    tiles = list(range(1,10))
+    valid_moves = [i+1 for i in range(9) if board[i//3][i%3] == " "] # List of valid moves
     try:
         move = int(input())
-        assert move in tiles
+        assert move in valid_moves
     except:
-        print("\nError! Try again!")
-        move = get_move()
+        print("\nInvalid move! Try again!")
+        move = get_move(board)
 
     return move
 
