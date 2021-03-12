@@ -1,6 +1,6 @@
 # TIC TAC TOE
 
-This project is simple tic tac toe game that I've implemented in Pythoon3, because I'm bored and need to do something. For now, it is very simple. Both the players have to be on the same terminal and there is no option to play against a bot. 
+This project is simple tic tac toe game that I've implemented in Python3, because I'm bored and need to do something. For now, it is very simple. Both the players have to be on the same terminal. 
 
 ## Requirements
 
