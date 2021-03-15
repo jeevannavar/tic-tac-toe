@@ -1,5 +1,6 @@
 # This file contains code to play a simple game between two humans using the same terminal
 from main_functions import *
+from auxiliary_functions import *
 
 # The outer while loop is so that players can start another game without exiting the script
 while True:
@@ -11,15 +12,18 @@ while True:
     render_board(layout)
     print("")
 
-    players = ["Player 1", "Player 2"]
+    players = get_names()
     current_player = players[0]
+    markers = dict(zip(players, ["X", "O"]))
     moves = 0
 
     while True:
+        print()
         print(current_player)
         coords = get_move(board)
 
-        board = make_move(board, current_player, coords)
+        marker = markers[current_player]
+        board = make_move(board, marker, coords)
         moves += 1
 
         render_board(board)

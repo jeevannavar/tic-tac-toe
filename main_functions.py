@@ -63,22 +63,17 @@ def get_move(board):
 
 #print(get_move())
 
-def make_move(board, current_player, coords):
+def make_move(board, marker, coords):
     '''
     This function makes the move on the board.
     Currently it can take only fixed player names and has fixed player markers.
     Input:
         board           = list of lists of size (3,3)
-        current_player  = str, either "Player 1" or "Player 2"
+        marker          = str, either "X" or "O"
         move            = int in the range of 1 through 9
     Output:
         board           = list of lists of size (3,3)
     '''
-    if current_player == "Player 1":
-        marker = "X"
-    else:
-        marker = "O"
-
     coords -= 1         #This is to bring the coordinate to zero indexing
     board[coords//3][coords%3] = marker
 
