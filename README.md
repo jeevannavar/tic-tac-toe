@@ -12,7 +12,7 @@ There's many features I'd like to implement as I go along. Some of them are:
 
 1. To improve the user experience:  
     ~~Allow entering player names.~~   
-    Have random celebratory lines.   
+    ~~Have random celebratory lines.~~   
     Colour.   
     Fixed game board.  
     GUI with the ability to interact with using the cursor.  

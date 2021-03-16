@@ -23,3 +23,19 @@ def get_names():
     names = [player_1, player_2]
 
     return names
+
+def celebrate():
+    """
+    This function prints a random line of celebration
+    Input:
+        None
+    Output:
+        None
+    """
+    with open("celebratory_lines.txt") as f:
+        lines = f.readlines()
+    
+    from random import choice
+    print(choice(lines))
+
+    return None

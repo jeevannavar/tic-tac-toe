@@ -29,7 +29,8 @@ while True:
         render_board(board)
 
         if winner(board):
-            print("Game Over!\n"+current_player + " is the winner!\n")
+            print("Game Over!\n"+current_player + " is the winner!")
+            celebrate()
             break
 
         if isBoardFull(board):
