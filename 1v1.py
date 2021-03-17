@@ -7,7 +7,7 @@ while True:
     board = new_board() 
     layout = [['1','2','3'],['4','5','6'],['7','8','9']]
 
-    print("\nTIC TAC TOE !!\n")
+    print(f"\n{bcolours.BOLD}{bcolours.PURPLE}TIC TAC TOE !!{bcolours.ENDC}\n")
     print("This is the layout of the board.")
     render_board(layout)
     print("")
@@ -19,7 +19,7 @@ while True:
 
     while True:
         print()
-        print(current_player)
+        print(f"{bcolours.GREEN}{current_player}{bcolours.ENDC}")
         coords = get_move(board)
 
         marker = markers[current_player]
@@ -29,18 +29,19 @@ while True:
         render_board(board)
 
         if winner(board):
-            print("Game Over!\n"+current_player + " is the winner!")
+            print(f"{bcolours.RED}Game Over!{bcolours.ENDC}")
+            print(f"{bcolours.GREEN}{current_player}{bcolours.ENDC} is the winner!")
             celebrate()
             break
 
         if isBoardFull(board):
-            print("Game Over!\nThe game is a draw.\n")
+            print(f"{bcolours.RED}Game Over!{bcolours.ENDC}\nThe game is a draw.\n")
             break
 
         #Switching players at the end of the turn
         current_player = players[moves%2]
 
-    print("Would you like to play again?\nEnter <Yes> to play again.")
+    print(f"{bcolours.BLUE}Would you like to play again?\nEnter <Yes> to play again.{bcolours.ENDC}")
     if input().strip().lower() == "yes":
         print("_"*100)
         continue

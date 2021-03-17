@@ -14,6 +14,7 @@ There's many features I'd like to implement as I go along. Some of them are:
     ~~Allow entering player names.~~   
     ~~Have random celebratory lines.~~   
     Colour.   
+        The means to add colour has been added, and some colour has been added too. However, the main functions are untouched.  
     Fixed game board.  
     GUI with the ability to interact with using the cursor.  
     
