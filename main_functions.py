@@ -8,10 +8,9 @@ def new_board():
     Outputs:
         list of lists of size (3,3)
     '''
-    empty_board = [[" "]*3 for _ in range(3)]
+    empty_board = [["     "]*3 for _ in range(3)]
     return empty_board
 
-# print(new_board())
 
 def render_board(board):
     '''
@@ -23,24 +22,20 @@ def render_board(board):
     '''
     print("_"*25)
     print("|", " "*5, "|", " "*5, "|", " "*5, "|")
-    print("|", board[0][0].center(5), "|", board[0][1].center(5), "|", board[0][2].center(5), "|")
+    print("|", board[0][0], "|", board[0][1], "|", board[0][2], "|")
     print("|", " "*5, "|", " "*5, "|", " "*5, "|")
     print("—"*25)
     print("|", " "*5, "|", " "*5, "|", " "*5, "|")
-    print("|", board[1][0].center(5), "|", board[1][1].center(5), "|", board[1][2].center(5), "|")
+    print("|", board[1][0], "|", board[1][1], "|", board[1][2], "|")
     print("|", " "*5, "|", " "*5, "|", " "*5, "|")
     print("—"*25)
     print("|", " "*5, "|", " "*5, "|", " "*5, "|")
-    print("|", board[2][0].center(5), "|", board[2][1].center(5), "|", board[2][2].center(5), "|")
+    print("|", board[2][0], "|", board[2][1], "|", board[2][2], "|")
     print("|", " "*5, "|", " "*5, "|", " "*5, "|")
     print("—"*25)
 
     return None
 
-#board = new_board()
-#board[1][1] = "X"
-#board[2][0] = "O"
-#render_board(board)
 
 def get_move(board):
     '''
@@ -51,7 +46,7 @@ def get_move(board):
         move    = int in the range of 1 through 9
     '''
     print("Choose the tile you would like to mark: (Enter number between 1 and 9)")
-    valid_moves = [i+1 for i in range(9) if board[i//3][i%3] == " "] # List of valid moves
+    valid_moves = [i+1 for i in range(9) if board[i//3][i%3] == "     "] # List of valid moves
     try:
         move = int(input())
         assert move in valid_moves
@@ -61,7 +56,6 @@ def get_move(board):
 
     return move
 
-#print(get_move())
 
 def make_move(board, marker, coords):
     '''
@@ -79,17 +73,6 @@ def make_move(board, marker, coords):
 
     return board
 
-"""
-# Testomg make_move()
-
-board = new_board()
-layout = [['1','2','3'],['4','5','6'],['7','8','9']]
-current_player = "Player 1"
-render_board(layout)
-render_board(make_move(board, current_player, 5))
-current_player = "Player 2"
-render_board(make_move(board, current_player, 1))
-"""
 
 def winner(board):
     '''
@@ -100,18 +83,17 @@ def winner(board):
         winner  = boolean, True if winner can be declared
     '''
     for i in range(3):
-        if board[i][0] == board[i][1] == board[i][2] != " ":
+        if board[i][0] == board[i][1] == board[i][2] != "     ":
             return True
-        if board[0][i] == board[1][i] == board[2][i] != " ":
+        if board[0][i] == board[1][i] == board[2][i] != "     ":
             return True
-    if board[0][0] == board[1][1] == board[2][2] != " ":
+    if board[0][0] == board[1][1] == board[2][2] != "     ":
         return True
-    if board[0][2] == board[1][1] == board[2][0] != " ":
+    if board[0][2] == board[1][1] == board[2][0] != "     ":
         return True
 
     return False
 
-# print(winner([["O", "X", "O"], ["O", "O", " "], [" ", " ", "O"]]))
 
 def isBoardFull(board):
     '''
@@ -121,8 +103,6 @@ def isBoardFull(board):
     Output:
         fullness    = boolean, True if the board is full
     '''
-    if any(" " in row for row in board):
+    if any("     " in row for row in board):
         return False
     return True
-
-# print(isBoardFull([["O", "X", "O"], ["O", "O", "X"], ["X", "X", "O"]]))

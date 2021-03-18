@@ -5,7 +5,7 @@ from auxiliary_functions import *
 # The outer while loop is so that players can start another game without exiting the script
 while True:
     board = new_board() 
-    layout = [['1','2','3'],['4','5','6'],['7','8','9']]
+    layout = [['  1  ','  2  ','  3  '],['  4  ','  5  ','  6  '],['  7  ','  8  ','  9  ']]
 
     print(f"\n{bcolours.BOLD}{bcolours.PURPLE}TIC TAC TOE !!{bcolours.ENDC}\n")
     print("This is the layout of the board.")
@@ -14,12 +14,15 @@ while True:
 
     players = get_names()
     current_player = players[0]
-    markers = dict(zip(players, ["X", "O"]))
+    markers = dict(zip(players, [f"  {bcolours.GREEN}X{bcolours.ENDC}  ", f"  {bcolours.VIOLET}O{bcolours.ENDC}  "]))
     moves = 0
 
     while True:
         print()
-        print(f"{bcolours.GREEN}{current_player}{bcolours.ENDC}")
+        if current_player == players[0]:
+            print(f"{bcolours.GREEN}{current_player}{bcolours.ENDC}")
+        else:
+            print(f"{bcolours.VIOLET}{current_player}{bcolours.ENDC}")
         coords = get_move(board)
 
         marker = markers[current_player]
@@ -30,7 +33,7 @@ while True:
 
         if winner(board):
             print(f"{bcolours.RED}Game Over!{bcolours.ENDC}")
-            print(f"{bcolours.GREEN}{current_player}{bcolours.ENDC} is the winner!")
+            print(f"{bcolours.ORANGE}{current_player}{bcolours.ENDC} is the winner!")
             celebrate()
             break
 
